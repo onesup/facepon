@@ -1,0 +1,27 @@
+
+<h1>Listing conversations</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>From</th>
+      <th>Latest msg.</th>
+      <th>Messages count</th>
+      <th>Unread count</th>
+      <th>Updated time</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @conversations.each do |conversation| %>
+      <tr>
+        <td><%= display_sender_name_of_latest_msg(conversation.messages.last) %></td>
+        <td><%= link_to display_content_of_latest_msg(conversation.messages.last), page_conversation_messages_path(@page, conversation) %></td>
+        <td><%= number_with_delimiter(conversation.message_count) %></td>
+        <td><%= number_with_delimiter(conversation.unread_count) %></td>
+        <td><%= conversation.updated_time %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

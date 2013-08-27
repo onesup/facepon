@@ -1,0 +1,44 @@
+# == Schema Information
+#
+# Table name: pages
+#
+#  id                   :integer          not null, primary key
+#  user_id              :integer
+#  page_id              :string(255)
+#  name                 :string(255)
+#  link                 :string(255)
+#  category             :string(255)
+#  about                :string(255)
+#  desc                 :string(255)
+#  desc_html            :string(255)
+#  picture              :string(255)
+#  likes                :integer
+#  unread_message_count :integer
+#  unread_notif_count   :integer
+#  unseen_message_count :integer
+#  access_token         :string(255)
+#  created_at           :datetime
+#  updated_at           :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  page_id: MyString
+  name: MyString
+  link: MyString
+  category: MyString
+  likes: 1
+  unread_message_count: 1
+  unread_notif_count: 1
+  unread_message_count: 1
+
+two:
+  page_id: MyString
+  name: MyString
+  link: MyString
+  category: MyString
+  likes: 1
+  unread_message_count: 1
+  unread_notif_count: 1
+  unread_message_count: 1

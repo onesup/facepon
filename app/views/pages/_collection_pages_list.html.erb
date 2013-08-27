@@ -1,0 +1,12 @@
+
+<% @fb_pages.each do |fb_page| %>
+  <%= content_tag :option, fb_page['name'], {
+    :value => fb_page['id'],
+    :data => {
+        :id => fb_page['id'],
+        :category => fb_page['category'],
+        :name => fb_page['name']
+      }
+    } %>
+<% end %>
+

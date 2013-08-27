@@ -1,0 +1,41 @@
+
+<h1>Listing messages</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>From</th>
+      <th>Message</th>
+      <th>Read</th>
+      <th>Created time</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @messages.each do |msg| %>
+      <tr>
+        <td><%= msg.sender.name %></td>
+        <td>
+          <p class=""><%= msg.content %>
+          </p>
+          <% unless msg.attachments.empty? %>
+            <ul>
+              <% msg.attachments.each do |attachment| %>
+                <li>
+                  <% if attachment.mime_type.split('/')[0] == 'image' %>
+                    <%= image_tag attachment.image_url %>
+                  <% else %>
+                    <%= link_to attachment.name, "https://graph.facebook.com/#{attachment.fbattach_id}" %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        </td>
+        <td><%= msg.read_status %></td>
+        <td><%= msg.created_time %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Page:</strong>
+  <%= @page.page_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @page.name %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @page.link %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @page.category %>
+</p>
+
+<p>
+  <strong>Likes:</strong>
+  <%= @page.likes %>
+</p>
+
+<p>
+  <strong>Unread message count:</strong>
+  <%= @page.unread_message_count %>
+</p>
+
+<p>
+  <strong>Unread notif count:</strong>
+  <%= @page.unread_notif_count %>
+</p>
+
+<p>
+  <strong>Unread message count:</strong>
+  <%= @page.unread_message_count %>
+</p>
+
+<%= link_to 'Edit', edit_page_path(@page) %> |
+<%= link_to 'Back', pages_path %>

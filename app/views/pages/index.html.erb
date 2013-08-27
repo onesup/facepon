@@ -1,0 +1,46 @@
+
+<h1>Listing pages</h1>
+
+<%= link_to 'Add a FB Page', new_page_path, :class => "btn btn-primary" %>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Pic.</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Likes</th>
+      <th>Unread message count</th>
+      <th>Unseen message count</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pages.each do |page| %>
+      <tr>
+        <td><%= image_tag page.picture %></td>
+        <td><%= link_to page.name, page_path(page) %></td>
+        <td><%= page.category %></td>
+        <td><%= number_with_delimiter(page.likes) %></td>
+        <td><%= number_with_delimiter(page.unread_message_count) %></td>
+        <td><%= number_with_delimiter(page.unseen_message_count) %></td>
+        <td>
+          <div class="dropdown">
+            <a class="dropdown-toggle btn btn-small" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">Action</a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              <li><%= link_to "Conversations", page_conversations_path(page) %></li>
+              <li><%= link_to "get message from fb", fetch_from_fb_page_conversations_path(page), :remote => true %></li>
+              <li><%= link_to "go to facebook page", page.link, :target => :blank %></li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<script>
+  $('.dropdown-toggle').dropdown();
+</script>

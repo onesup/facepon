@@ -1,0 +1,20 @@
+
+<%= simple_form_for @page do |f| %>
+  <%= f.input :name, :as => :hidden %>
+  <%= f.input :category, :as => :hidden %>
+
+  <%= link_to "Get pages list from FB", build_pages_collection_pages_path, :remote => true %>
+  <%= f.input :page_id, :as => :select, :collection => [] %>
+
+  <%= f.submit %>
+<% end %>
+
+<%= content_tag :option, "1" %>
+
+<script>
+  $('#page_page_id').change(function(e) {
+    var selected_obj = $('#page_page_id option:selected');
+    $('#page_name').val( selected_obj.attr('data-name') );
+    $('#page_category').val( selected_obj.attr('data-category') );
+  });
+</script>

@@ -1,0 +1,7 @@
+$('#page_page_id option').remove();
+$('#page_page_id').append('<%= escape_javascript(render :partial => "collection_pages_list") %>')
+
+// default
+$('#page_name').val('<%= @fb_pages[0]['name'] %>');
+$('#page_category').val('<%= @fb_pages[0]['category'] %>');
+
